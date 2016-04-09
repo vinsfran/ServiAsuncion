@@ -10,10 +10,64 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="py.gov.mca.serviasuncion.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:gravity="center_horizontal">
 
-    <TextView
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:baselineAligned="false"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/image_button_banca_comunal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@drawable/buscar_100" />
+
+            <TextView
+                android:id="@+id/text_view_banca_comunal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buscar Nro. Doc."
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/image_button_prestamos_personales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@drawable/buscar_100" />
+
+            <TextView
+                android:id="@+id/text_view_prestamos_personales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buscar Nro. Exp."
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>
