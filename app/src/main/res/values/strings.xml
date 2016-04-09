@@ -6,5 +6,18 @@
     <string name="txt_copyright" translatable="false">© 2016</string>
     <string name="txt_consulta_expediente" translatable="false">Consulta de expedientes</string>
     <string name="txt_reclamos_en_linea" translatable="false">Reclamos en linea</string>
+    <string name="txt_nro_expediente" translatable="false">Número de Expediente</string>
+    <string name="txt_anio" translatable="false">Año:</string>
+    <string name="txt_nro_documento" translatable="false">Número de Documento</string>
+    <string name="txt_tipo_documento" translatable="false">Tipo de Docuemto</string>
+    <string name="txt_buscar" translatable="false">Buscar</string>
+    <string name="txt_buscar_nro_doc" translatable="false">Buscar por Número de Documento</string>
+    <string name="txt_buscar_nro_exp" translatable="false">Buscar por Número de Expediente</string>
+    <string name="txt_volver" translatable="false">Volver</string>
+    <string name="txt_menu_exp" translatable="false">Menú de Expedientes</string>
+    <string name="txt_lista_per" translatable="false">Personas</string>
+    <string name="txt_lista_exp" translatable="false">Expedientes</string>
+    <string name="txt_lista_mov" translatable="false">Movimientos</string>
+    <string name="txt_no_disponible">No disponible</string>
     <string name="action_settings">Settings</string>
 </resources>

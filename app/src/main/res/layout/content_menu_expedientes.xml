@@ -2,13 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative_layout_principal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="py.gov.mca.serviasuncion.MainActivity"
-    tools:showIn="@layout/activity_main"
-    android:gravity="center_horizontal">
-
+    tools:context="py.gov.mca.serviasuncion.MenuExpedientesActivity"
+    tools:showIn="@layout/activity_menu_expedientes">
 
     <LinearLayout
         android:id="@+id/linear_layout_principal"
@@ -26,14 +25,14 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/text_view_consulta_exp"
+                android:id="@+id/text_view_buscar_nro_doc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_consulta_expediente"
+                android:text="@string/txt_buscar_nro_doc"
                 android:textColor="@color/textColorPrimary"/>
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floating_action_button_consulta_exp"
+                android:id="@+id/floating_action_button_buscar_nro_doc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|top"
@@ -48,14 +47,14 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/text_view_reclamos_online"
+                android:id="@+id/text_view_buscar_nro_exp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_reclamos_en_linea"
+                android:text="@string/txt_buscar_nro_exp"
                 android:textColor="@color/textColorPrimary"/>
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floating_action_button_reclamos_online"
+                android:id="@+id/floating_action_button_buscar_nro_exp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|top"
@@ -63,5 +62,4 @@
                 android:src="@drawable/ic_search_white_24dp" />
         </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

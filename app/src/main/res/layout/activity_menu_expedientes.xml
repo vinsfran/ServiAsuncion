@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="py.gov.mca.serviasuncion.BuscarDocActivity">
+    tools:context="py.gov.mca.serviasuncion.MenuExpedientesActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -17,6 +17,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_buscar_doc" />
+    <include layout="@layout/content_menu_expedientes" />
 
 </android.support.design.widget.CoordinatorLayout>

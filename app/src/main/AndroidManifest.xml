@@ -22,8 +22,17 @@
             android:name=".MainActivity"
             android:label="@string/txt_nombre_aplicacion"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".BuscarDocActivity" />
-        <activity android:name=".BuscarExpActivity"></activity>
+        <activity
+            android:name=".BuscarDocActivity"
+            android:label="@string/txt_nro_documento" />
+        <activity
+            android:name=".BuscarExpActivity"
+            android:label="@string/txt_buscar_nro_exp" />
+        <activity
+            android:name=".MenuExpedientesActivity"
+            android:label="@string/txt_menu_exp" />
+        <activity android:name=".ListaPersonasActivity"
+            android:label="@string/txt_lista_per"/>
     </application>
 
 </manifest>

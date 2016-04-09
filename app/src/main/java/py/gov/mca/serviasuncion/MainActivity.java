@@ -1,12 +1,15 @@
 package py.gov.mca.serviasuncion;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -20,7 +23,8 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
-    private Drawer navigationDrawerLeft;
+    private FloatingActionButton fabConsultaExp;
+    private FloatingActionButton fabReclamosOnline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,48 +38,46 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        final IProfile profile = new ProfileDrawerItem()
-                .withName("Servicios ASU")
-                .withIcon(R.drawable.ic_asu_44)
-                .withIdentifier(100);
+        fabConsultaExp = (FloatingActionButton) findViewById(R.id.floating_action_button_consulta_exp);
+        fabReclamosOnline = (FloatingActionButton) findViewById(R.id.floating_action_button_reclamos_online);
 
-        AccountHeader headerNavigationLeft = new AccountHeaderBuilder()
-                .withActivity(this)
-                .withSavedInstance(savedInstanceState)
-                .withHeaderBackground(R.color.accent)
-                .addProfiles(profile)
-                .withHeightDp(120)
-                .build();
+        fabConsultaExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MenuExpedientesActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        navigationDrawerLeft = new DrawerBuilder()
-                .withActivity(this)
-                .withToolbar(mToolbar)
-                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+        fabConsultaExp.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(getApplicationContext(), R.string.txt_consulta_expediente, Toast.LENGTH_LONG).show();
+                return true;
+            }
+        });
 
-                        switch (position) {
-                            case 1:
-                                consultaExpedientesClicado(view);
-                                break;
-                            case 2:
-                                reclamosEnLineaClicado(view);
-                                break;
-                        }
+        fabReclamosOnline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), R.string.txt_no_disponible, Toast.LENGTH_LONG).show();
+            }
+        });
 
-                        return false;
-                    }
-                })
-                .build();
-        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName(R.string.txt_consulta_expediente).withIcon(R.drawable.ic_logo_24));
-        navigationDrawerLeft.addItem(new PrimaryDrawerItem().withName(R.string.txt_reclamos_en_linea).withIcon(R.drawable.ic_logo_24));
+        fabReclamosOnline.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(getApplicationContext(), R.string.txt_reclamos_en_linea, Toast.LENGTH_LONG).show();
+                return true;
+            }
+        });
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -94,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void consultaExpedientesClicado(View v) {
-        // Intent intent = new Intent(MainActivity.this, BancasActivity.class);
-        // startActivity(intent);
+         Intent intent = new Intent(MainActivity.this, MenuExpedientesActivity.class);
+         startActivity(intent);
     }
 
     protected void reclamosEnLineaClicado(View v) {
