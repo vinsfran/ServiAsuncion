@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         fabReclamosOnline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                
                 Toast.makeText(getApplicationContext(), R.string.txt_no_disponible, Toast.LENGTH_LONG).show();
             }
         });
