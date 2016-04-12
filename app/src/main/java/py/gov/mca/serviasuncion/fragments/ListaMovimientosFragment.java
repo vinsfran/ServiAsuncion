@@ -14,25 +14,24 @@ import java.text.ParseException;
 import java.util.List;
 
 import me.drakeet.materialdialog.MaterialDialog;
-import py.gov.mca.serviasuncion.ListaExpedientesActivity;
-import py.gov.mca.serviasuncion.ListaPersonasActivity;
+import py.gov.mca.serviasuncion.ListaMovimientosActivity;
 import py.gov.mca.serviasuncion.R;
-import py.gov.mca.serviasuncion.adapters.ListaPersonasAdapter;
-import py.gov.mca.serviasuncion.entidades.Persona;
+import py.gov.mca.serviasuncion.adapters.ListaMovimientosAdapter;
+import py.gov.mca.serviasuncion.entidades.Movimiento;
 import py.gov.mca.serviasuncion.interfaces.RecyclerViewOnClickListenerHack;
 
 
-public class ListaPersonasFragment extends Fragment implements RecyclerViewOnClickListenerHack {
+public class ListaMovimientosFragment extends Fragment implements RecyclerViewOnClickListenerHack {
 
     private RecyclerView mRecyclerView;
-    private List<Persona> mList;
+    private List<Movimiento> mList;
 
     private MaterialDialog mMaterialDialog;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_lista_personas, container, false);
+        View view = inflater.inflate(R.layout.fragment_lista_movimientos, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list);
         mRecyclerView.setHasFixedSize(true);
@@ -64,11 +63,11 @@ public class ListaPersonasFragment extends Fragment implements RecyclerViewOnCli
         mRecyclerView.setLayoutManager(llm);
 
         try {
-            mList = ((ListaPersonasActivity) getActivity()).getSetPersonasList();
+            mList = ((ListaMovimientosActivity) getActivity()).getSetExpedientesList();
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        ListaPersonasAdapter adapter = new ListaPersonasAdapter(getActivity(), mList);
+        ListaMovimientosAdapter adapter = new ListaMovimientosAdapter(getActivity(), mList);
         adapter.setRecyclerViewOnClickListenerHack(this);
         mRecyclerView.setAdapter(adapter);
         return view;
@@ -76,14 +75,12 @@ public class ListaPersonasFragment extends Fragment implements RecyclerViewOnCli
 
     @Override
     public void onClickListener(final View view, final int position) {
-        Toast.makeText(getActivity(), "onClickListener()" + position + mList.get(position).getNombre(), Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getActivity(), ListaExpedientesActivity.class);
-        startActivity(intent);
+        Toast.makeText(getActivity(), "onClickListener()" + position + mList.get(position).getNumero(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onLongPressClickListener(View view, int position) {
-        Toast.makeText(getActivity(), "onLongPressClickListener()" + position + mList.get(position).getNombre(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "onLongPressClickListener()" + position + mList.get(position).getNumero(), Toast.LENGTH_SHORT).show();
 
     }
 

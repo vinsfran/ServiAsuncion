@@ -31,8 +31,14 @@
         <activity
             android:name=".MenuExpedientesActivity"
             android:label="@string/txt_menu_exp" />
-        <activity android:name=".ListaPersonasActivity"
-            android:label="@string/txt_lista_per"/>
+        <activity
+            android:name=".ListaPersonasActivity"
+            android:label="@string/txt_lista_per" />
+        <activity
+            android:name=".ListaExpedientesActivity"
+            android:label="@string/txt_lista_exp" />
+        <activity android:name=".ListaMovimientosActivity"
+            android:label="@string/txt_lista_mov"/>
     </application>
 
 </manifest>
