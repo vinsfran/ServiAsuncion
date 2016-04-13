@@ -27,6 +27,14 @@
             android:layout_gravity="top"
             android:layout_weight="1.00">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_logo_asu_100"
+                android:layout_gravity="top|center"
+                android:layout_marginBottom="16dp"
+                app:layout_collapseMode="parallax"/>
+
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
@@ -44,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:textColor="@color/white" />
+                style="@android:style/Widget.Holo.Light.ProgressBar.Large"/>
 
             <TextView
                 android:id="@+id/textView2"

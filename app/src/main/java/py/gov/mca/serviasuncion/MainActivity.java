@@ -3,28 +3,25 @@ package py.gov.mca.serviasuncion;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import com.mikepenz.materialdrawer.AccountHeader;
-import com.mikepenz.materialdrawer.AccountHeaderBuilder;
-import com.mikepenz.materialdrawer.Drawer;
-import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
-    private FloatingActionButton fabConsultaExp;
-    private FloatingActionButton fabReclamosOnline;
+    private ImageButton imageButtonConsultaExp;
+    private ImageButton imageButtonReclamosOnline;
+    private TextView textViewConsultaExp;
+    private TextView textViewReclamosOnline;
+    private View.OnClickListener listenerConsultaExp;
+    private View.OnClickListener listenerReclamosOnline;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,40 +35,13 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        fabConsultaExp = (FloatingActionButton) findViewById(R.id.floating_action_button_consulta_exp);
-        fabReclamosOnline = (FloatingActionButton) findViewById(R.id.floating_action_button_reclamos_online);
+        imageButtonConsultaExp = (ImageButton) findViewById(R.id.image_button_consulta_exp);
+        imageButtonReclamosOnline = (ImageButton) findViewById(R.id.image_button_reclamos_online);
+        textViewConsultaExp = (TextView) findViewById(R.id.text_view_consulta_exp);
+        textViewReclamosOnline = (TextView) findViewById(R.id.text_view_reclamos_online);
 
-        fabConsultaExp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MenuExpedientesActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        fabConsultaExp.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Toast.makeText(getApplicationContext(), R.string.txt_consulta_expediente, Toast.LENGTH_LONG).show();
-                return true;
-            }
-        });
-
-        fabReclamosOnline.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                
-                Toast.makeText(getApplicationContext(), R.string.txt_no_disponible, Toast.LENGTH_LONG).show();
-            }
-        });
-
-        fabReclamosOnline.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Toast.makeText(getApplicationContext(), R.string.txt_reclamos_en_linea, Toast.LENGTH_LONG).show();
-                return true;
-            }
-        });
+        asignacionConsultaExpListener();
+        asignacionReclamosOnlineListener();
 
     }
 
@@ -96,13 +66,34 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    protected void consultaExpedientesClicado(View v) {
-         Intent intent = new Intent(MainActivity.this, MenuExpedientesActivity.class);
-         startActivity(intent);
+    private void asignacionConsultaExpListener() {
+        listenerConsultaExp = new View.OnClickListener() {
+            public void onClick(View v) {
+                consultaExpClicado(v);
+            }
+        };
+        imageButtonConsultaExp.setOnClickListener(listenerConsultaExp);
+
+        textViewConsultaExp.setOnClickListener(listenerConsultaExp);
     }
 
-    protected void reclamosEnLineaClicado(View v) {
-        // Intent intent = new Intent(MainActivity.this, BancasActivity.class);
-        // startActivity(intent);
+    protected void consultaExpClicado(View v) {
+        Intent intent = new Intent(MainActivity.this, MenuExpedientesActivity.class);
+        startActivity(intent);
+    }
+
+    private void asignacionReclamosOnlineListener() {
+        listenerReclamosOnline = new View.OnClickListener() {
+            public void onClick(View v) {
+                reclamosOnlineClicado(v);
+            }
+        };
+        imageButtonReclamosOnline.setOnClickListener(listenerReclamosOnline);
+
+        textViewReclamosOnline.setOnClickListener(listenerReclamosOnline);
+    }
+
+    protected void reclamosOnlineClicado(View v) {
+        Toast.makeText(getApplicationContext(), R.string.txt_no_disponible, Toast.LENGTH_LONG).show();
     }
 }

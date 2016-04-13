@@ -24,7 +24,7 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".BuscarDocActivity"
-            android:label="@string/txt_nro_documento" />
+            android:label="@string/txt_buscar_nro_doc" />
         <activity
             android:name=".BuscarExpActivity"
             android:label="@string/txt_buscar_nro_exp" />

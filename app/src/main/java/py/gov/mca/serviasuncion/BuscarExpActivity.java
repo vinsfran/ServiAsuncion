@@ -9,11 +9,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class BuscarExpActivity extends AppCompatActivity {
     private Toolbar mToolbar;
 
-    public Button buttonBuscarNroExp;
+    public ImageButton imageButtonBuscarNroExp;
+    private TextView textViewBuscarNroExp;
+    private View.OnClickListener listenerBuscarNroExp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +32,10 @@ public class BuscarExpActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        buttonBuscarNroExp = (Button) findViewById(R.id.button_buscar_nro_exp);
+        imageButtonBuscarNroExp = (ImageButton) findViewById(R.id.image_button_buscar_nro_exp);
+        textViewBuscarNroExp = (TextView) findViewById(R.id.text_view_buscar_nro_exp);
 
-        buttonBuscarNroExp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(BuscarExpActivity.this, ListaMovimientosActivity.class);
-                startActivity(intent);
-            }
-        });
+        asignacionBuscarNroExpListener();
     }
 
     @Override
@@ -60,5 +59,20 @@ public class BuscarExpActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void asignacionBuscarNroExpListener() {
+        listenerBuscarNroExp = new View.OnClickListener() {
+            public void onClick(View v) {
+                buscarNroExpClicado(v);
+            }
+        };
+        imageButtonBuscarNroExp.setOnClickListener(listenerBuscarNroExp);
+        textViewBuscarNroExp.setOnClickListener(listenerBuscarNroExp);
+    }
+
+    protected void buscarNroExpClicado(View v) {
+        Intent intent = new Intent(BuscarExpActivity.this, ListaMovimientosActivity.class);
+        startActivity(intent);
     }
 }

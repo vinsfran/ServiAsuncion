@@ -15,9 +15,9 @@
     <string name="txt_buscar_nro_exp" translatable="false">Buscar por Número de Expediente</string>
     <string name="txt_volver" translatable="false">Volver</string>
     <string name="txt_menu_exp" translatable="false">Menú de Expedientes</string>
-    <string name="txt_lista_per" translatable="false">Personas</string>
-    <string name="txt_lista_exp" translatable="false">Expedientes</string>
-    <string name="txt_lista_mov" translatable="false">Movimientos</string>
+    <string name="txt_lista_per" translatable="false">Lista de Personas</string>
+    <string name="txt_lista_exp" translatable="false">Lista de Expedientes</string>
+    <string name="txt_lista_mov" translatable="false">Lista de Movimientos</string>
     <string name="txt_no_disponible">No disponible</string>
     <string name="action_settings">Settings</string>
 </resources>

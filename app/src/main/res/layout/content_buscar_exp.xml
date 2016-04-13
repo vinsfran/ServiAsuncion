@@ -20,20 +20,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/buscar_100" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -43,7 +30,7 @@
                 android:layout_gravity="center_horizontal">
 
                 <EditText
-                    android:id="@+id/edit_text_usuario"
+                    android:id="@+id/edit_text_nro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/txt_nro_expediente"
@@ -56,7 +43,7 @@
                 android:layout_gravity="center_horizontal">
 
                 <EditText
-                    android:id="@+id/edit_text_contrasena"
+                    android:id="@+id/edit_text_anio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/txt_anio"
@@ -68,19 +55,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:gravity="right"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:gravity="center_vertical|right"
+            android:layout_margin="16dp">
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/button_buscar_nro_exp"
+            <ImageButton
+                android:id="@+id/image_button_buscar_nro_exp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_search_white_24dp"
+                android:src="@drawable/ic_search_orange_24dp"
+                android:background="@color/white"/>
+
+            <TextView
+                android:id="@+id/text_view_buscar_nro_exp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/txt_buscar"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textColor="@color/accent"
+                android:layout_marginLeft="5dp"/>
 
         </LinearLayout>
 

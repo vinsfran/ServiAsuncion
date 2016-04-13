@@ -8,13 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class BuscarDocActivity extends AppCompatActivity {
     private Toolbar mToolbar;
 
-    public Button buttonBuscarNroDoc;
+    public ImageButton imageButtonBuscarNroDoc;
+    private TextView textViewBuscarNroDoc;
+    private View.OnClickListener listenerBuscarNroDoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +31,10 @@ public class BuscarDocActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        buttonBuscarNroDoc = (Button) findViewById(R.id.button_buscar_nro_doc);
+        imageButtonBuscarNroDoc = (ImageButton) findViewById(R.id.image_button_buscar_nro_doc);
+        textViewBuscarNroDoc = (TextView) findViewById(R.id.text_view_buscar_nro_doc);
 
-        buttonBuscarNroDoc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(BuscarDocActivity.this, ListaPersonasActivity.class);
-                startActivity(intent);
-            }
-        });
+        asignacionBuscarNroDocListener();
 
     }
 
@@ -62,5 +59,20 @@ public class BuscarDocActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void asignacionBuscarNroDocListener() {
+        listenerBuscarNroDoc = new View.OnClickListener() {
+            public void onClick(View v) {
+                buscarNroDocClicado(v);
+            }
+        };
+        imageButtonBuscarNroDoc.setOnClickListener(listenerBuscarNroDoc);
+        textViewBuscarNroDoc.setOnClickListener(listenerBuscarNroDoc);
+    }
+
+    protected void buscarNroDocClicado(View v) {
+        Intent intent = new Intent(BuscarDocActivity.this, ListaPersonasActivity.class);
+        startActivity(intent);
     }
 }

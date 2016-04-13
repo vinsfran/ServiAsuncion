@@ -20,27 +20,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/buscar_100" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:orientation="vertical">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp">
 
                 <EditText
                     android:id="@+id/edit_text_usuario"
@@ -58,10 +46,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="0dp"
-                    android:paddingBottom="0dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp"
                     android:text="@string/txt_tipo_documento"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/textColorPrimary"
                     android:textSize="12sp" />
 
                 <Spinner
@@ -79,19 +67,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:gravity="right"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:gravity="center_vertical|right"
+            android:layout_margin="16dp">
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/button_buscar_nro_doc"
+            <ImageButton
+                android:id="@+id/image_button_buscar_nro_doc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_search_white_24dp"
+                android:src="@drawable/ic_search_orange_24dp"
+                android:background="@color/white"/>
+
+            <TextView
+                android:id="@+id/text_view_buscar_nro_doc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/txt_buscar"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textColor="@color/accent"
+                android:layout_marginLeft="5dp"/>
 
         </LinearLayout>
 

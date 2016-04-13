@@ -2,20 +2,23 @@ package py.gov.mca.serviasuncion;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class MenuExpedientesActivity extends AppCompatActivity {
     private Toolbar mToolbar;
-    private FloatingActionButton fabBuscarNroDoc;
-    private FloatingActionButton fabBuscarNroExp;
+    private ImageButton imageButtonBuscarNroDoc;
+    private ImageButton imageButtonBuscarNroExp;
+    private TextView textViewBuscarNroDoc;
+    private TextView textViewBuscarNroExp;
+    private View.OnClickListener listenerBuscarNroDoc;
+    private View.OnClickListener listenerBuscarNroExp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,42 +33,13 @@ public class MenuExpedientesActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        fabBuscarNroDoc = (FloatingActionButton) findViewById(R.id.floating_action_button_buscar_nro_doc);
-        fabBuscarNroExp = (FloatingActionButton) findViewById(R.id.floating_action_button_buscar_nro_exp);
+        imageButtonBuscarNroDoc = (ImageButton) findViewById(R.id.image_button_buscar_nro_doc);
+        imageButtonBuscarNroExp = (ImageButton) findViewById(R.id.image_button_buscar_nro_exp);
+        textViewBuscarNroDoc = (TextView) findViewById(R.id.text_view_buscar_nro_doc);
+        textViewBuscarNroExp = (TextView) findViewById(R.id.text_view_buscar_nro_exp);
 
-        fabBuscarNroDoc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MenuExpedientesActivity.this, BuscarDocActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        fabBuscarNroDoc.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Toast.makeText(getApplicationContext(), R.string.txt_buscar_nro_doc, Toast.LENGTH_LONG).show();
-                return true;
-            }
-        });
-
-        fabBuscarNroExp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MenuExpedientesActivity.this, BuscarExpActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        fabBuscarNroExp.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Toast.makeText(getApplicationContext(), R.string.txt_buscar_nro_exp, Toast.LENGTH_LONG).show();
-                return true;
-            }
-        });
-
-
+        asignacionBuscarNroDocListener();
+        asignacionBuscarNroExpListener();
     }
 
     @Override
@@ -89,5 +63,35 @@ public class MenuExpedientesActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void asignacionBuscarNroDocListener() {
+        listenerBuscarNroDoc = new View.OnClickListener() {
+            public void onClick(View v) {
+                buscarNroDocClicado(v);
+            }
+        };
+        imageButtonBuscarNroDoc.setOnClickListener(listenerBuscarNroDoc);
+        textViewBuscarNroDoc.setOnClickListener(listenerBuscarNroDoc);
+    }
+
+    protected void buscarNroDocClicado(View v) {
+        Intent intent = new Intent(MenuExpedientesActivity.this, BuscarDocActivity.class);
+        startActivity(intent);
+    }
+
+    private void asignacionBuscarNroExpListener() {
+        listenerBuscarNroExp = new View.OnClickListener() {
+            public void onClick(View v) {
+                buscarNroExpClicado(v);
+            }
+        };
+        imageButtonBuscarNroExp.setOnClickListener(listenerBuscarNroExp);
+        textViewBuscarNroExp.setOnClickListener(listenerBuscarNroExp);
+    }
+
+    protected void buscarNroExpClicado(View v) {
+        Intent intent = new Intent(MenuExpedientesActivity.this, BuscarExpActivity.class);
+        startActivity(intent);
     }
 }

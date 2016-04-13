@@ -23,44 +23,50 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/image_button_consulta_exp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_done_orange_24dp"
+                android:background="@color/white"
+                android:layout_margin="@dimen/fab_margin"/>
 
             <TextView
                 android:id="@+id/text_view_consulta_exp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_consulta_expediente"
-                android:textColor="@color/textColorPrimary"/>
+                android:textColor="@color/textColorPrimary"
+                android:layout_marginLeft="16dp" />
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floating_action_button_consulta_exp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|top"
-                android:layout_margin="@dimen/fab_margin"
-                android:src="@drawable/ic_search_white_24dp" />
+
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/image_button_reclamos_online"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_done_orange_24dp"
+                android:background="@color/white"
+                android:layout_margin="@dimen/fab_margin"/>
 
             <TextView
                 android:id="@+id/text_view_reclamos_online"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_reclamos_en_linea"
-                android:textColor="@color/textColorPrimary"/>
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floating_action_button_reclamos_online"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|top"
-                android:layout_margin="@dimen/fab_margin"
-                android:src="@drawable/ic_search_white_24dp" />
+                android:textColor="@color/textColorPrimary"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp" />
         </LinearLayout>
     </LinearLayout>
 
