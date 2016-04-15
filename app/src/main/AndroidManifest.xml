@@ -5,12 +5,12 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/txt_nombre_aplicacion"
+        android:label="@string/txt_recaudaciones"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyTheme">
         <activity
             android:name=".InicioActivity"
-            android:label="@string/txt_nombre_aplicacion"
+            android:label="@string/txt_recaudaciones"
             android:theme="@style/Theme.MyTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/txt_nombre_aplicacion"
+            android:label="@string/txt_recaudaciones"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".BuscarDocActivity"

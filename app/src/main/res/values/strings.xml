@@ -4,7 +4,8 @@
     <string name="txt_desarrollado_por">Desarrollado por: </string>
     <string name="txt_desarrollador" translatable="false">Vicente Insfán</string>
     <string name="txt_copyright" translatable="false">© 2016</string>
-    <string name="txt_consulta_expediente" translatable="false">Consulta de expedientes</string>
+    <string name="txt_recaudaciones" translatable="false">Expedientes Recaudaciones</string>
+    <string name="txt_consulta_expediente" translatable="false">Consulta Expedientes</string>
     <string name="txt_reclamos_en_linea" translatable="false">Reclamos en linea</string>
     <string name="txt_nro_expediente" translatable="false">Número de Expediente</string>
     <string name="txt_anio" translatable="false">Año:</string>
