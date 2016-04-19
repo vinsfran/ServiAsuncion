@@ -18,14 +18,14 @@ import py.gov.mca.serviasuncion.ListaExpedientesActivity;
 import py.gov.mca.serviasuncion.ListaPersonasActivity;
 import py.gov.mca.serviasuncion.R;
 import py.gov.mca.serviasuncion.adapters.ListaPersonasAdapter;
-import py.gov.mca.serviasuncion.entidades.Persona;
+import py.gov.mca.serviasuncion.entidades.Sempersona;
 import py.gov.mca.serviasuncion.interfaces.RecyclerViewOnClickListenerHack;
 
 
 public class ListaPersonasFragment extends Fragment implements RecyclerViewOnClickListenerHack {
 
     private RecyclerView mRecyclerView;
-    private List<Persona> mList;
+    private List<Sempersona> mList;
 
     private MaterialDialog mMaterialDialog;
 
@@ -76,14 +76,14 @@ public class ListaPersonasFragment extends Fragment implements RecyclerViewOnCli
 
     @Override
     public void onClickListener(final View view, final int position) {
-        Toast.makeText(getActivity(), "onClickListener()" + position + mList.get(position).getNombre(), Toast.LENGTH_SHORT).show();
+       /* Toast.makeText(getActivity(), "onClickListener()" + position + mList.get(position).getNombre(), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getActivity(), ListaExpedientesActivity.class);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 
     @Override
     public void onLongPressClickListener(View view, int position) {
-        Toast.makeText(getActivity(), "onLongPressClickListener()" + position + mList.get(position).getNombre(), Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(getActivity(), "onLongPressClickListener()" + position + mList.get(position).getNombre(), Toast.LENGTH_SHORT).show();
 
     }
 

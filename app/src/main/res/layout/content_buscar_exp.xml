@@ -30,7 +30,7 @@
                 android:layout_gravity="center_horizontal">
 
                 <EditText
-                    android:id="@+id/edit_text_nro"
+                    android:id="@+id/et_nro_exp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/txt_nro_expediente"
@@ -43,12 +43,11 @@
                 android:layout_gravity="center_horizontal">
 
                 <EditText
-                    android:id="@+id/edit_text_anio"
+                    android:id="@+id/et_anio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/txt_anio"
-                    android:inputType="textPassword"
-                    android:textSize="20sp" />
+                    android:inputType="textCapCharacters" />
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
 

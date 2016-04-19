@@ -1,6 +1,5 @@
 package py.gov.mca.serviasuncion.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import org.json.JSONException;
+
 import java.text.ParseException;
 import java.util.List;
 
@@ -17,14 +18,14 @@ import me.drakeet.materialdialog.MaterialDialog;
 import py.gov.mca.serviasuncion.ListaMovimientosActivity;
 import py.gov.mca.serviasuncion.R;
 import py.gov.mca.serviasuncion.adapters.ListaMovimientosAdapter;
-import py.gov.mca.serviasuncion.entidades.Movimiento;
+import py.gov.mca.serviasuncion.entidades.Sedmovexp;
 import py.gov.mca.serviasuncion.interfaces.RecyclerViewOnClickListenerHack;
 
 
 public class ListaMovimientosFragment extends Fragment implements RecyclerViewOnClickListenerHack {
 
     private RecyclerView mRecyclerView;
-    private List<Movimiento> mList;
+    private List<Sedmovexp> mList;
 
     private MaterialDialog mMaterialDialog;
 
@@ -33,7 +34,7 @@ public class ListaMovimientosFragment extends Fragment implements RecyclerViewOn
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista_movimientos, container, false);
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_movimientos);
         mRecyclerView.setHasFixedSize(true);
       /*  mRecyclerView.addOnScrollListener(new OnScrollListener() {
             @Override
@@ -66,6 +67,8 @@ public class ListaMovimientosFragment extends Fragment implements RecyclerViewOn
             mList = ((ListaMovimientosActivity) getActivity()).getSetExpedientesList();
         } catch (ParseException e) {
             e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         ListaMovimientosAdapter adapter = new ListaMovimientosAdapter(getActivity(), mList);
         adapter.setRecyclerViewOnClickListenerHack(this);
@@ -75,13 +78,12 @@ public class ListaMovimientosFragment extends Fragment implements RecyclerViewOn
 
     @Override
     public void onClickListener(final View view, final int position) {
-        Toast.makeText(getActivity(), "onClickListener()" + position + mList.get(position).getNumero(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), "onClickListener()" + position + mList.get(position).getNumero(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onLongPressClickListener(View view, int position) {
-        Toast.makeText(getActivity(), "onLongPressClickListener()" + position + mList.get(position).getNumero(), Toast.LENGTH_SHORT).show();
-
+        //Toast.makeText(getActivity(), "onLongPressClickListener()" + position + mList.get(position).getNumero(), Toast.LENGTH_SHORT).show();
     }
 
    /* private static class ReclyclerViewTouchListener implements RecyclerView.OnItemTouchListener {

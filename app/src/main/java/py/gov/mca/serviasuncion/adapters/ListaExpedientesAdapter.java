@@ -12,18 +12,18 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import py.gov.mca.serviasuncion.R;
-import py.gov.mca.serviasuncion.entidades.Expediente;
+import py.gov.mca.serviasuncion.entidades.Semexpediente;
 import py.gov.mca.serviasuncion.interfaces.RecyclerViewOnClickListenerHack;
 
 public class ListaExpedientesAdapter extends RecyclerView.Adapter<ListaExpedientesAdapter.MyViewHolder> {
     // Formato para SQL date time
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    private List<Expediente> mList;
+    private List<Semexpediente> mList;
     private LayoutInflater mLayoutInflater;
     private RecyclerViewOnClickListenerHack mRecyclerViewOnClickListenerHack;
     private DecimalFormat decimalFormat;
 
-    public ListaExpedientesAdapter(Context context, List<Expediente> l) {
+    public ListaExpedientesAdapter(Context context, List<Semexpediente> l) {
         this.mList = l;
         this.mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -36,8 +36,8 @@ public class ListaExpedientesAdapter extends RecyclerView.Adapter<ListaExpedient
 
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, int position) {
-        myViewHolder.tvAnioExp.setText(mList.get(position).getAnio());
-        myViewHolder.tvNroExp.setText(String.valueOf(mList.get(position).getNumero()));
+      /*  myViewHolder.tvAnioExp.setText(mList.get(position).getAnio());
+        myViewHolder.tvNroExp.setText(String.valueOf(mList.get(position).getNumero()));*/
 
     }
 
@@ -52,8 +52,8 @@ public class ListaExpedientesAdapter extends RecyclerView.Adapter<ListaExpedient
 
     }
 
-    public void addListItem(Expediente expediente, int position) {
-        mList.add(expediente);
+    public void addListItem(Semexpediente semexpediente, int position) {
+        mList.add(semexpediente);
         notifyItemInserted(position);
     }
 
@@ -62,7 +62,7 @@ public class ListaExpedientesAdapter extends RecyclerView.Adapter<ListaExpedient
         notifyItemRemoved(position);
     }
 
-    public void renovarLista(List<Expediente> nuevaLista){
+    public void renovarLista(List<Semexpediente> nuevaLista){
         mList = null;
         mList = nuevaLista;
         notifyDataSetChanged();

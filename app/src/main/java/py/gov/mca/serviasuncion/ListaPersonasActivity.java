@@ -7,18 +7,17 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-import py.gov.mca.serviasuncion.entidades.Persona;
+import py.gov.mca.serviasuncion.entidades.Sempersona;
 import py.gov.mca.serviasuncion.fragments.ListaPersonasFragment;
 
 public class ListaPersonasActivity extends AppCompatActivity {
     private Toolbar mToolbar;
-    private List<Persona> personas;
+    private List<Sempersona> sempersonas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,14 +65,14 @@ public class ListaPersonasActivity extends AppCompatActivity {
         }
     }
 
-    public List<Persona> getSetPersonasList() throws ParseException {
-        Persona p1 = new Persona(1, "p1");
-        Persona p2 = new Persona(2, "p2");
+    public List<Sempersona> getSetPersonasList() throws ParseException {
+       /* Sempersona p1 = new Sempersona(1, "p1");
+        Sempersona p2 = new Sempersona(2, "p2");
 
-        personas = new ArrayList<>();
-        personas.add(p1);
-        personas.add(p2);
+        sempersonas = new ArrayList<>();
+        sempersonas.add(p1);
+        sempersonas.add(p2);*/
 
-        return personas;
+        return sempersonas;
     }
 }

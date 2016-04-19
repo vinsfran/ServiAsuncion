@@ -12,18 +12,18 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import py.gov.mca.serviasuncion.R;
-import py.gov.mca.serviasuncion.entidades.Movimiento;
+import py.gov.mca.serviasuncion.entidades.Sedmovexp;
 import py.gov.mca.serviasuncion.interfaces.RecyclerViewOnClickListenerHack;
 
 public class ListaMovimientosAdapter extends RecyclerView.Adapter<ListaMovimientosAdapter.MyViewHolder> {
     // Formato para SQL date time
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    private List<Movimiento> mList;
+    private List<Sedmovexp> mList;
     private LayoutInflater mLayoutInflater;
     private RecyclerViewOnClickListenerHack mRecyclerViewOnClickListenerHack;
     private DecimalFormat decimalFormat;
 
-    public ListaMovimientosAdapter(Context context, List<Movimiento> l) {
+    public ListaMovimientosAdapter(Context context, List<Sedmovexp> l) {
         this.mList = l;
         this.mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -36,9 +36,9 @@ public class ListaMovimientosAdapter extends RecyclerView.Adapter<ListaMovimient
 
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, int position) {
-        myViewHolder.tvDesMov.setText(mList.get(position).getDescripcion());
-        myViewHolder.tvNroMov.setText(String.valueOf(mList.get(position).getNumero()));
-
+        myViewHolder.tvDependencia.setText(mList.get(position).getCodDepen().getDesDepen());
+        myViewHolder.tvMovimiento.setText(mList.get(position).getNroTipmov().getDesTipmov());
+        myViewHolder.tvFecha.setText(dateFormat.format(mList.get(position).getFecMovexp()));
     }
 
 
@@ -52,8 +52,8 @@ public class ListaMovimientosAdapter extends RecyclerView.Adapter<ListaMovimient
 
     }
 
-    public void addListItem(Movimiento movimiento, int position) {
-        mList.add(movimiento);
+    public void addListItem(Sedmovexp sedmovexp, int position) {
+        mList.add(sedmovexp);
         notifyItemInserted(position);
     }
 
@@ -62,20 +62,22 @@ public class ListaMovimientosAdapter extends RecyclerView.Adapter<ListaMovimient
         notifyItemRemoved(position);
     }
 
-    public void renovarLista(List<Movimiento> nuevaLista){
+    public void renovarLista(List<Sedmovexp> nuevaLista){
         mList = null;
         mList = nuevaLista;
         notifyDataSetChanged();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
-        public TextView tvNroMov;
-        public TextView tvDesMov;
+        public TextView tvDependencia;
+        public TextView tvMovimiento;
+        public TextView tvFecha;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            tvNroMov = (TextView) itemView.findViewById(R.id.tv_nro_mov);
-            tvDesMov = (TextView) itemView.findViewById(R.id.tv_des_mov);
+            tvDependencia = (TextView) itemView.findViewById(R.id.tv_dependencia);
+            tvMovimiento = (TextView) itemView.findViewById(R.id.tv_movimiento);
+            tvFecha = (TextView) itemView.findViewById(R.id.tv_fecha);
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
         }

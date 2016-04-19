@@ -20,5 +20,19 @@
     <string name="txt_lista_exp" translatable="false">Lista de Expedientes</string>
     <string name="txt_lista_mov" translatable="false">Lista de Movimientos</string>
     <string name="txt_no_disponible">No disponible</string>
+    <string name="txt_dependencia">Dependencia</string>
+    <string name="txt_movimiento">Movimiento</string>
+    <string name="txt_fecha">Fecha</string>
+    <string name="txt_exp_anio">N° Exp. / Año:</string>
+    <string name="txt_nro_doc">Nro. Documento:</string>
+    <string name="txt_recurrente">Recurrente:</string>
+    <string name="txt_des_exp">Des. Exp.:</string>
+    <string name="txt_estado">Estado:</string>
+    <string name="txt_resultado_busqueda">Resultado de la busqueda</string>
+    <string name="txt_mov_exp" translatable="false">Movimientos del Expediente</string>
+    <string name="txt_atencion">Atención</string>
+    <string name="txt_aceptar">Aceptar</string>
+    <string name="txt_titulo_alerta_conectividad_error">Error de conectividad</string>
+    <string name="txt_titulo_alerta_json_exception">JSONException</string>
     <string name="action_settings">Settings</string>
 </resources>

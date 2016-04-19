@@ -12,12 +12,12 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-import py.gov.mca.serviasuncion.entidades.Expediente;
+import py.gov.mca.serviasuncion.entidades.Semexpediente;
 import py.gov.mca.serviasuncion.fragments.ListaExpedientesFragment;
 
 public class ListaExpedientesActivity extends AppCompatActivity {
     private Toolbar mToolbar;
-    private List<Expediente> expedientes;
+    private List<Semexpediente> semexpedientes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,14 +65,14 @@ public class ListaExpedientesActivity extends AppCompatActivity {
         }
     }
 
-    public List<Expediente> getSetExpedientesList() throws ParseException {
-        Expediente e1 = new Expediente(1, "e1");
-        Expediente e2 = new Expediente(2, "e2");
+    public List<Semexpediente> getSetExpedientesList() throws ParseException {
+      /*  Semexpediente e1 = new Semexpediente(1, "e1");
+        Semexpediente e2 = new Semexpediente(2, "e2");
 
-        expedientes = new ArrayList<>();
-        expedientes.add(e1);
-        expedientes.add(e2);
+        semexpedientes = new ArrayList<>();
+        semexpedientes.add(e1);
+        semexpedientes.add(e2);*/
 
-        return expedientes;
+        return semexpedientes;
     }
 }

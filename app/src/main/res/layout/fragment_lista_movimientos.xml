@@ -5,9 +5,9 @@
     tools:context="py.gov.mca.serviasuncion.ListaMovimientosActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_list"
-        android:scrollbars="vertical"
+        android:id="@+id/rv_list_movimientos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
 
 </FrameLayout>

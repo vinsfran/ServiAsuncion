@@ -5,28 +5,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Locale;
 
 import py.gov.mca.serviasuncion.R;
-import py.gov.mca.serviasuncion.entidades.Persona;
+import py.gov.mca.serviasuncion.entidades.Sempersona;
 import py.gov.mca.serviasuncion.interfaces.RecyclerViewOnClickListenerHack;
 
 public class ListaPersonasAdapter extends RecyclerView.Adapter<ListaPersonasAdapter.MyViewHolder> {
     // Formato para SQL date time
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    private List<Persona> mList;
+    private List<Sempersona> mList;
     private LayoutInflater mLayoutInflater;
     private RecyclerViewOnClickListenerHack mRecyclerViewOnClickListenerHack;
     private DecimalFormat decimalFormat;
 
-    public ListaPersonasAdapter(Context context, List<Persona> l) {
+    public ListaPersonasAdapter(Context context, List<Sempersona> l) {
         this.mList = l;
         this.mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -39,8 +36,8 @@ public class ListaPersonasAdapter extends RecyclerView.Adapter<ListaPersonasAdap
 
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, int position) {
-        myViewHolder.tvNombrePersona.setText(mList.get(position).getNombre());
-        myViewHolder.tvCodigo.setText(String.valueOf(mList.get(position).getCodigo()));
+      //  myViewHolder.tvNombrePersona.setText(mList.get(position).getNombre());
+      //  myViewHolder.tvCodigo.setText(String.valueOf(mList.get(position).getCodigo()));
 
     }
 
@@ -55,8 +52,8 @@ public class ListaPersonasAdapter extends RecyclerView.Adapter<ListaPersonasAdap
 
     }
 
-    public void addListItem(Persona persona, int position) {
-        mList.add(persona);
+    public void addListItem(Sempersona sempersona, int position) {
+        mList.add(sempersona);
         notifyItemInserted(position);
     }
 
@@ -65,7 +62,7 @@ public class ListaPersonasAdapter extends RecyclerView.Adapter<ListaPersonasAdap
         notifyItemRemoved(position);
     }
 
-    public void renovarLista(List<Persona> nuevaLista){
+    public void renovarLista(List<Sempersona> nuevaLista){
         mList = null;
         mList = nuevaLista;
         notifyDataSetChanged();
