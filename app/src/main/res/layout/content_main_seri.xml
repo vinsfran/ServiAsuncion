@@ -26,20 +26,20 @@
             android:gravity="center_vertical">
 
             <ImageButton
-                android:id="@+id/image_button_buscar_nro_doc"
+                android:id="@+id/image_button_consulta_exp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_search_orange_24dp"
+                android:src="@drawable/ic_done_orange_24dp"
                 android:background="@color/white"
                 android:layout_margin="@dimen/fab_margin"/>
 
             <TextView
-                android:id="@+id/text_view_buscar_nro_doc"
+                android:id="@+id/text_view_consulta_exp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_buscar_nro_doc"
+                android:text="@string/txt_consulta_expediente"
                 android:textColor="@color/textColorPrimary"
-                android:layout_marginLeft="16dp"/>
+                android:layout_marginLeft="16dp" />
 
 
 
@@ -52,20 +52,21 @@
             android:gravity="center_vertical">
 
             <ImageButton
-                android:id="@+id/image_button_buscar_nro_exp"
+                android:id="@+id/image_button_reclamos_online"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_search_orange_24dp"
+                android:src="@drawable/ic_done_orange_24dp"
                 android:background="@color/white"
                 android:layout_margin="@dimen/fab_margin"/>
 
             <TextView
-                android:id="@+id/text_view_buscar_nro_exp"
-                android:layout_width="wrap_content"
+                android:id="@+id/text_view_reclamos_online"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_buscar_nro_exp"
+                android:text="@string/txt_reclamos_en_linea"
                 android:textColor="@color/textColorPrimary"
-                android:layout_marginLeft="16dp"/>
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp" />
         </LinearLayout>
     </LinearLayout>
 

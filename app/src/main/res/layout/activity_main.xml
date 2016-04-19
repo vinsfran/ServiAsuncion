@@ -20,7 +20,9 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:expandedTitleMarginStart="16dp"
+            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Subhead">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -29,6 +31,7 @@
                 android:layout_gravity="top|right"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 app:layout_collapseMode="parallax"/>
 
             <android.support.v7.widget.Toolbar

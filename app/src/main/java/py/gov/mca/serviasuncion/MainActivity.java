@@ -15,12 +15,12 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
-    private ImageButton imageButtonConsultaExp;
-    private ImageButton imageButtonReclamosOnline;
-    private TextView textViewConsultaExp;
-    private TextView textViewReclamosOnline;
-    private View.OnClickListener listenerConsultaExp;
-    private View.OnClickListener listenerReclamosOnline;
+    private ImageButton imageButtonBuscarNroDoc;
+    private ImageButton imageButtonBuscarNroExp;
+    private TextView textViewBuscarNroDoc;
+    private TextView textViewBuscarNroExp;
+    private View.OnClickListener listenerBuscarNroDoc;
+    private View.OnClickListener listenerBuscarNroExp;
 
 
     @Override
@@ -35,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        imageButtonConsultaExp = (ImageButton) findViewById(R.id.image_button_consulta_exp);
-        imageButtonReclamosOnline = (ImageButton) findViewById(R.id.image_button_reclamos_online);
-        textViewConsultaExp = (TextView) findViewById(R.id.text_view_consulta_exp);
-        textViewReclamosOnline = (TextView) findViewById(R.id.text_view_reclamos_online);
+        imageButtonBuscarNroDoc = (ImageButton) findViewById(R.id.image_button_buscar_nro_doc);
+        imageButtonBuscarNroExp = (ImageButton) findViewById(R.id.image_button_buscar_nro_exp);
+        textViewBuscarNroDoc = (TextView) findViewById(R.id.text_view_buscar_nro_doc);
+        textViewBuscarNroExp = (TextView) findViewById(R.id.text_view_buscar_nro_exp);
 
-        asignacionConsultaExpListener();
-        asignacionReclamosOnlineListener();
+        asignacionBuscarNroDocListener();
+        asignacionBuscarNroExpListener();
 
     }
 
@@ -66,34 +66,34 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void asignacionConsultaExpListener() {
-        listenerConsultaExp = new View.OnClickListener() {
+    private void asignacionBuscarNroDocListener() {
+        listenerBuscarNroDoc = new View.OnClickListener() {
             public void onClick(View v) {
-                consultaExpClicado(v);
+                buscarNroDocClicado(v);
             }
         };
-        imageButtonConsultaExp.setOnClickListener(listenerConsultaExp);
-
-        textViewConsultaExp.setOnClickListener(listenerConsultaExp);
+        imageButtonBuscarNroDoc.setOnClickListener(listenerBuscarNroDoc);
+        textViewBuscarNroDoc.setOnClickListener(listenerBuscarNroDoc);
     }
 
-    protected void consultaExpClicado(View v) {
-        Intent intent = new Intent(MainActivity.this, MenuExpedientesActivity.class);
-        startActivity(intent);
-    }
-
-    private void asignacionReclamosOnlineListener() {
-        listenerReclamosOnline = new View.OnClickListener() {
-            public void onClick(View v) {
-                reclamosOnlineClicado(v);
-            }
-        };
-        imageButtonReclamosOnline.setOnClickListener(listenerReclamosOnline);
-
-        textViewReclamosOnline.setOnClickListener(listenerReclamosOnline);
-    }
-
-    protected void reclamosOnlineClicado(View v) {
+    protected void buscarNroDocClicado(View v) {
         Toast.makeText(getApplicationContext(), R.string.txt_no_disponible, Toast.LENGTH_LONG).show();
+        //Intent intent = new Intent(MainActivity.this, BuscarDocActivity.class);
+        //startActivity(intent);
+    }
+
+    private void asignacionBuscarNroExpListener() {
+        listenerBuscarNroExp = new View.OnClickListener() {
+            public void onClick(View v) {
+                buscarNroExpClicado(v);
+            }
+        };
+        imageButtonBuscarNroExp.setOnClickListener(listenerBuscarNroExp);
+        textViewBuscarNroExp.setOnClickListener(listenerBuscarNroExp);
+    }
+
+    protected void buscarNroExpClicado(View v) {
+        Intent intent = new Intent(MainActivity.this, BuscarExpActivity.class);
+        startActivity(intent);
     }
 }
