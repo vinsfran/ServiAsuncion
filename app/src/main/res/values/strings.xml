@@ -7,7 +7,7 @@
     <string name="txt_direccion_info">Dirección de Informática y Organización</string>
     <string name="txt_departamento_sis">Departamento de Sistemas</string>
     <string name="txt_unidad_desa">Un. de Desarrollo y Mantenimiento de Sistemas</string>
-    <string name="txt_desarrollador" translatable="false">Ing. Vicente Insfán</string>
+    <string name="txt_desarrollador" translatable="false">Ing. Vicente Insfán C.</string>
     <string name="txt_copyright" translatable="false">© 2016</string>
     <string name="txt_recaudaciones" translatable="false">Expedientes Recaudaciones</string>
     <string name="txt_consulta_expediente" translatable="false">Consulta Expedientes</string>
@@ -37,7 +37,13 @@
     <string name="txt_mov_exp" translatable="false">Movimientos del Expediente</string>
     <string name="txt_atencion">Atención</string>
     <string name="txt_aceptar">Aceptar</string>
+    <string name="txt_cancelar">Cancelar</string>
     <string name="txt_titulo_alerta_conectividad_error">Error de conectividad</string>
+    <string name="txt_no_existe_expediente">No existe expediente</string>
     <string name="txt_titulo_alerta_json_exception">JSONException</string>
+    <string name="txt_enviar_correo">Enviar por correo</string>
+    <string name="txt_correo_enviado">Correo enviado</string>
+    <string name="txt_email">Email</string>
+    <string name="txt_mensaje_alerta_campo_vacio">Debe completar el campo</string>
     <string name="action_settings">Settings</string>
 </resources>

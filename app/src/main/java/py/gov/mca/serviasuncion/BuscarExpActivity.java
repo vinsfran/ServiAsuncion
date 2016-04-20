@@ -146,42 +146,16 @@ public class BuscarExpActivity extends AppCompatActivity {
                         public void onResponse(JSONArray response) {
                             Log.d("response", response.toString());
                             moviJson = response.toString();
-                            Intent intent = new Intent(BuscarExpActivity.this, ListaMovimientosActivity.class);
-                            intent.putExtra("moviJson", moviJson);
-                            startActivity(intent);
-                            hidePDialog();
-                            /*if (!response.isNull("Respuesta")) {
-                                try {
-                                    String respuesta = response.getString("Respuesta");
-                                    String fechaBt = response.getString("FechaBT");
-                                    Integer minIntegrantes = response.getInt("MinIntegrantes");
-                                    Integer maxIntegrantes = response.getInt("MaxIntegrantes");
-                                    Integer contadorBanca = response.getInt("ContadorBanca");
-                                    if (respuesta.equals("OK")) {
-                                        if (!fechaBt.equals("0000-00-00")) {
-                                            hidePDialog();
-                                            ingresarSistema(fechaBt, minIntegrantes, maxIntegrantes, contadorBanca);
-                                        } else {
-                                            hidePDialog();
-                                            mMaterialDialog.setMessage("No se pudo obtener fecha de BT");
-                                            mMaterialDialog.show();
-                                        }
-                                    } else {
-                                        hidePDialog();
-                                        mMaterialDialog.setMessage(respuesta);
-                                        mMaterialDialog.show();
-                                    }
-                                } catch (JSONException e) {
-                                    hidePDialog();
-                                    mMaterialDialog.setTitle(R.string.txt_titulo_alerta_json_exception);
-                                    mMaterialDialog.setMessage(e.getMessage());
-                                    mMaterialDialog.show();
-                                }
+                            if(!moviJson.equals("[]")){
+                                Intent intent = new Intent(BuscarExpActivity.this, ListaMovimientosActivity.class);
+                                intent.putExtra("moviJson", moviJson);
+                                startActivity(intent);
+                                hidePDialog();
                             } else {
                                 hidePDialog();
-                                mMaterialDialog.setMessage("No hay respuesta del servidor");
+                                mMaterialDialog.setMessage(R.string.txt_no_existe_expediente);
                                 mMaterialDialog.show();
-                            }*/
+                            }
                         }
                     }, new Response.ErrorListener() {
                 @Override

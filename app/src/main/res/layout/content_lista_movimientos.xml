@@ -48,7 +48,7 @@
                 android:text="@string/txt_exp_anio"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="12sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_exp_anio"
