@@ -45,5 +45,6 @@
     <string name="txt_correo_enviado">Correo enviado</string>
     <string name="txt_email">Email</string>
     <string name="txt_mensaje_alerta_campo_vacio">Debe completar el campo</string>
+    <string name="txt_mensaje_alerta_campos_vacios">Los campos no pueden estar vacios</string>
     <string name="action_settings">Settings</string>
 </resources>

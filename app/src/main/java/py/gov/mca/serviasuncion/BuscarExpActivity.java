@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -121,10 +122,12 @@ public class BuscarExpActivity extends AppCompatActivity {
                 mMaterialDialog.dismiss();
             }
         });
-        consultar();
-
-
-
+        if (etNroExp.getText().toString().trim().equals("") || etAnio.getText().toString().trim().equals("")) {
+            mMaterialDialog.setMessage(R.string.txt_mensaje_alerta_campos_vacios);
+            mMaterialDialog.show();
+        } else {
+            consultar();
+        }
     }
 
     public void consultar() {

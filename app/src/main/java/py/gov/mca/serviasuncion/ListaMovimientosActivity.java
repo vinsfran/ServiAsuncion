@@ -87,7 +87,7 @@ public class ListaMovimientosActivity extends AppCompatActivity {
             ft.commit();
         }
         asignaciones();
-        fabEnviarMail = (FloatingActionButton) findViewById(R.id.fab_enviar_mail);
+        /*fabEnviarMail = (FloatingActionButton) findViewById(R.id.fab_enviar_mail);
         fabEnviarMail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,7 +105,7 @@ public class ListaMovimientosActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), R.string.txt_enviar_correo, Toast.LENGTH_LONG).show();
                 return true;
             }
-        });
+        });*/
     }
 
     private void asignaciones() {
