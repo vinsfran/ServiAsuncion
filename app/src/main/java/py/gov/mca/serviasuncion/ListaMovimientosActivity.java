@@ -87,7 +87,7 @@ public class ListaMovimientosActivity extends AppCompatActivity {
             ft.commit();
         }
         asignaciones();
-        /*fabEnviarMail = (FloatingActionButton) findViewById(R.id.fab_enviar_mail);
+        fabEnviarMail = (FloatingActionButton) findViewById(R.id.fab_enviar_mail);
         fabEnviarMail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,7 +105,7 @@ public class ListaMovimientosActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), R.string.txt_enviar_correo, Toast.LENGTH_LONG).show();
                 return true;
             }
-        });*/
+        });
     }
 
     private void asignaciones() {
@@ -133,7 +133,6 @@ public class ListaMovimientosActivity extends AppCompatActivity {
                         } else {
                             enviarCorreoWS(userInput.getText().toString().trim());
                             mMaterialDialog.dismiss();
-                            Toast.makeText(getApplicationContext(), R.string.txt_correo_enviado, Toast.LENGTH_LONG).show();
                         }
                     }
                 })
@@ -149,12 +148,14 @@ public class ListaMovimientosActivity extends AppCompatActivity {
     public void enviarCorreoWS(String mail) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
-        pDialog.setMessage("Endiando correo...");
+        pDialog.setMessage("Enviando correo ...");
         showpDialog();
         JSONObject dato = new JSONObject();
         try {
             dato.put("mail", mail);
-            Log.d("dato", dato.toString());
+            dato.put("nroCarpeta", sedmovexps.get(0).getNroExpediente().getNroCarpeta());
+            dato.put("indEjefiscar", sedmovexps.get(0).getNroExpediente().getIndEjefiscar());
+            Log.d("datoMAIL", dato.toString());
             RequestQueue requestQueue = Volley.newRequestQueue(MyApplication.getAppContext());
             final JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
                     "http://appserver.mca.gov.py/expediente/recursosweb/expedientes/enviarCorreo/",
@@ -162,20 +163,18 @@ public class ListaMovimientosActivity extends AppCompatActivity {
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            Log.d("response", response.toString());
+                            Log.d("responseMAIL", response.toString());
                             String respuesta = null;
                             try {
                                 respuesta = response.getString("status");
-                                if (respuesta.equals("OK")) {
-                                    hidePDialog();
-                                } else {
-                                    hidePDialog();
+                                if (!respuesta.equals("OK")) {
                                     mMaterialDialog.setMessage(respuesta);
                                     mMaterialDialog.show();
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
+                            hidePDialog();
 
                         }
                     }, new Response.ErrorListener() {
