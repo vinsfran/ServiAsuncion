@@ -37,7 +37,7 @@ public class ListaPersonasActivity extends AppCompatActivity {
         if (frag == null) {
             frag = new ListaPersonasFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.rl_fragment_container, frag, "ListaPersonasFrag");
+            ft.replace(R.id.rl_fragment_container_personas, frag, "ListaPersonasFrag");
             ft.commit();
         }
     }

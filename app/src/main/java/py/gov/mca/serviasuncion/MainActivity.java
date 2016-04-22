@@ -77,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void buscarNroDocClicado(View v) {
-        Toast.makeText(getApplicationContext(), R.string.txt_no_disponible, Toast.LENGTH_LONG).show();
-        //Intent intent = new Intent(MainActivity.this, BuscarDocActivity.class);
-        //startActivity(intent);
+        //Toast.makeText(getApplicationContext(), R.string.txt_no_disponible, Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MainActivity.this, BuscarDocActivity.class);
+        startActivity(intent);
     }
 
     private void asignacionBuscarNroExpListener() {

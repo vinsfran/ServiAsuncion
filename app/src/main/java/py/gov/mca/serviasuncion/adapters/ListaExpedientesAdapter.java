@@ -36,9 +36,10 @@ public class ListaExpedientesAdapter extends RecyclerView.Adapter<ListaExpedient
 
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, int position) {
-      /*  myViewHolder.tvAnioExp.setText(mList.get(position).getAnio());
-        myViewHolder.tvNroExp.setText(String.valueOf(mList.get(position).getNumero()));*/
-
+        myViewHolder.tvNroExpAnio.setText(mList.get(position).getNroCarpeta() + " / " + mList.get(position).getIndEjefiscar());
+        myViewHolder.tvDescripcion.setText(mList.get(position).getDesExpediente());
+        //myViewHolder.tvUbicacionActual.setText(mList.get(position).getCodDepen().getDesDepen());
+       // myViewHolder.tvFechaMovimiento.setText(dateFormat.format(mList.get(position).getFecUltmov()));
     }
 
 
@@ -62,20 +63,25 @@ public class ListaExpedientesAdapter extends RecyclerView.Adapter<ListaExpedient
         notifyItemRemoved(position);
     }
 
-    public void renovarLista(List<Semexpediente> nuevaLista){
+    public void renovarLista(List<Semexpediente> nuevaLista) {
         mList = null;
         mList = nuevaLista;
         notifyDataSetChanged();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
-        public TextView tvNroExp;
-        public TextView tvAnioExp;
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+        public TextView tvNroExpAnio;
+        public TextView tvDescripcion;
+        //public TextView tvUbicacionActual;
+        //public TextView tvFechaMovimiento;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            tvNroExp = (TextView) itemView.findViewById(R.id.tv_nro_exp);
-            tvAnioExp = (TextView) itemView.findViewById(R.id.tv_anio_exp);
+            tvNroExpAnio = (TextView) itemView.findViewById(R.id.tv_nro_exp_anio);
+            tvDescripcion = (TextView) itemView.findViewById(R.id.tv_descripcion);
+            //tvUbicacionActual = (TextView) itemView.findViewById(R.id.tv_ubicacion_actual);
+            //tvFechaMovimiento = (TextView) itemView.findViewById(R.id.tv_fecha_movimiento);
+
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
         }

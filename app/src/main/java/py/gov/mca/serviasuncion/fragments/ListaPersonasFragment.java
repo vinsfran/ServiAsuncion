@@ -34,7 +34,7 @@ public class ListaPersonasFragment extends Fragment implements RecyclerViewOnCli
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista_personas, container, false);
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_personas);
         mRecyclerView.setHasFixedSize(true);
       /*  mRecyclerView.addOnScrollListener(new OnScrollListener() {
             @Override

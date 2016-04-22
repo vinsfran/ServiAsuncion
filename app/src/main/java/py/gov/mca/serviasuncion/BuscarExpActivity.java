@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -68,8 +69,7 @@ public class BuscarExpActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        imageButtonBuscarNroExp = (ImageButton) findViewById(R.id.image_button_buscar_nro_exp);
-        textViewBuscarNroExp = (TextView) findViewById(R.id.text_view_buscar_nro_exp);
+
 
         asignaciones();
         asignacionBuscarNroExpListener();
@@ -78,6 +78,8 @@ public class BuscarExpActivity extends AppCompatActivity {
     private void asignaciones() {
         etNroExp = (EditText) findViewById(R.id.et_nro_exp);
         etAnio = (EditText) findViewById(R.id.et_anio);
+        imageButtonBuscarNroExp = (ImageButton) findViewById(R.id.image_button_buscar_nro_exp);
+        textViewBuscarNroExp = (TextView) findViewById(R.id.text_view_buscar_nro_exp);
     }
 
     @Override
@@ -102,6 +104,8 @@ public class BuscarExpActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 
     private void asignacionBuscarNroExpListener() {
         listenerBuscarNroExp = new View.OnClickListener() {

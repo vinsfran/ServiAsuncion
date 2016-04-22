@@ -28,4 +28,8 @@ public class Sebtipdocide implements Serializable {
     public void setDesTipdocide(String desTipdocide) {
         this.desTipdocide = desTipdocide;
     }
+
+    public String toString(){
+        return getDesTipdocide();
+    }
 }

@@ -26,8 +26,12 @@
     <string name="txt_lista_mov" translatable="false">Lista de Movimientos</string>
     <string name="txt_no_disponible">No disponible</string>
     <string name="txt_dependencia">Dependencia</string>
+    <string name="txt_expe_anio">N° Exp. / Año</string>
     <string name="txt_movimiento">Movimiento</string>
+    <string name="txt_descripcion">Descripción</string>
     <string name="txt_fecha">Fecha</string>
+    <string name="txt_ubi_actual">Ubic. actual</string>
+    <string name="txt_fecha_ultimo_mov">Fec. ultimo mov.</string>
     <string name="txt_exp_anio">N° Exp. / Año:</string>
     <string name="txt_nro_doc">Nro. Documento:</string>
     <string name="txt_recurrente">Recurrente:</string>
@@ -35,11 +39,14 @@
     <string name="txt_estado">Estado:</string>
     <string name="txt_resultado_busqueda">Resultado de la busqueda</string>
     <string name="txt_mov_exp" translatable="false">Movimientos del Expediente</string>
+    <string name="txt_seleccione_expediente" translatable="false">Seleccione un expediente</string>
+
     <string name="txt_atencion">Atención</string>
     <string name="txt_aceptar">Aceptar</string>
     <string name="txt_cancelar">Cancelar</string>
     <string name="txt_titulo_alerta_conectividad_error">Error de conectividad</string>
     <string name="txt_no_existe_expediente">No existe expediente</string>
+    <string name="txt_no_tiene_expedientes">No tiene expedientes</string>
     <string name="txt_titulo_alerta_json_exception">JSONException</string>
     <string name="txt_enviar_correo">Enviar por correo</string>
     <string name="txt_correo_enviado">Correo enviado</string>

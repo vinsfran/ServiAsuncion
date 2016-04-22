@@ -10,12 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import org.json.JSONException;
+
 import java.text.ParseException;
 import java.util.List;
 
 import me.drakeet.materialdialog.MaterialDialog;
 import py.gov.mca.serviasuncion.ListaExpedientesActivity;
-import py.gov.mca.serviasuncion.ListaMovimientosActivity;
 import py.gov.mca.serviasuncion.R;
 import py.gov.mca.serviasuncion.adapters.ListaExpedientesAdapter;
 import py.gov.mca.serviasuncion.entidades.Semexpediente;
@@ -34,7 +35,7 @@ public class ListaExpedientesFragment extends Fragment implements RecyclerViewOn
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista_expedientes, container, false);
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_expedientes);
         mRecyclerView.setHasFixedSize(true);
       /*  mRecyclerView.addOnScrollListener(new OnScrollListener() {
             @Override
@@ -66,6 +67,8 @@ public class ListaExpedientesFragment extends Fragment implements RecyclerViewOn
         try {
             mList = ((ListaExpedientesActivity) getActivity()).getSetExpedientesList();
         } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
         ListaExpedientesAdapter adapter = new ListaExpedientesAdapter(getActivity(), mList);

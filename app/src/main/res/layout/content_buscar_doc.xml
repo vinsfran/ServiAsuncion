@@ -21,17 +21,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:gravity="center"
+            android:gravity="left"
             android:orientation="vertical">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="left"
                 android:layout_marginBottom="5dp">
 
                 <EditText
-                    android:id="@+id/edit_text_usuario"
+                    android:id="@+id/et_nro_doc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/txt_nro_documento"
@@ -53,7 +53,7 @@
                     android:textSize="12sp" />
 
                 <Spinner
-                    android:id="@+id/spinner_tipo_documento"
+                    android:id="@+id/sp_tip_doc"
                     style="@android:style/Widget.Holo.Light.Spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
