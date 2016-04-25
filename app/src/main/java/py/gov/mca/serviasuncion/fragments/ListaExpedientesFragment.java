@@ -1,22 +1,36 @@
 package py.gov.mca.serviasuncion.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.util.List;
 
 import me.drakeet.materialdialog.MaterialDialog;
 import py.gov.mca.serviasuncion.ListaExpedientesActivity;
+import py.gov.mca.serviasuncion.ListaMovimientosActivity;
+import py.gov.mca.serviasuncion.MyApplication;
 import py.gov.mca.serviasuncion.R;
 import py.gov.mca.serviasuncion.adapters.ListaExpedientesAdapter;
 import py.gov.mca.serviasuncion.entidades.Semexpediente;
@@ -25,10 +39,13 @@ import py.gov.mca.serviasuncion.interfaces.RecyclerViewOnClickListenerHack;
 
 public class ListaExpedientesFragment extends Fragment implements RecyclerViewOnClickListenerHack {
 
+    private ProgressDialog pDialog;
+    private MaterialDialog mMaterialDialog;
+
     private RecyclerView mRecyclerView;
     private List<Semexpediente> mList;
 
-    private MaterialDialog mMaterialDialog;
+    private String moviJson;
 
 
     @Override
@@ -58,7 +75,7 @@ public class ListaExpedientesFragment extends Fragment implements RecyclerViewOn
 
             }
         });*/
-      //  mRecyclerView.addOnItemTouchListener(new ReclyclerViewTouchListener(getActivity(), mRecyclerView, this));
+        //  mRecyclerView.addOnItemTouchListener(new ReclyclerViewTouchListener(getActivity(), mRecyclerView, this));
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -66,6 +83,9 @@ public class ListaExpedientesFragment extends Fragment implements RecyclerViewOn
 
         try {
             mList = ((ListaExpedientesActivity) getActivity()).getSetExpedientesList();
+            //if(mList.size() == 1){
+            //    consultarMovimientos(mList.get(0).getNroCarpeta(), mList.get(0).getIndEjefiscar());
+            //}
         } catch (ParseException e) {
             e.printStackTrace();
         } catch (JSONException e) {
@@ -79,14 +99,19 @@ public class ListaExpedientesFragment extends Fragment implements RecyclerViewOn
 
     @Override
     public void onClickListener(final View view, final int position) {
-      /*  Toast.makeText(getActivity(), "onClickListener()" + position + mList.get(position).getNumero(), Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getActivity(), ListaMovimientosActivity.class);
-        startActivity(intent);*/
+       // Toast.makeText(getActivity(), "onClickListener()" + position + mList.get(position).getDesExpediente(), Toast.LENGTH_SHORT).show();
+
+        consultarMovimientos(mList.get(position).getNroCarpeta(), mList.get(position).getIndEjefiscar());
+
+
+
+        //Intent intent = new Intent(getActivity(), ListaMovimientosActivity.class);
+        //startActivity(intent);
     }
 
     @Override
     public void onLongPressClickListener(View view, int position) {
-      //  Toast.makeText(getActivity(), "onLongPressClickListener()" + position + mList.get(position).getNumero(), Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(getActivity(), "onLongPressClickListener()" + position + mList.get(position).getNumero(), Toast.LENGTH_SHORT).show();
 
     }
 
@@ -146,4 +171,75 @@ public class ListaExpedientesFragment extends Fragment implements RecyclerViewOn
 
         }
     }*/
+
+    private void consultarMovimientos(Integer nroCarpeta, Integer indEjefiscar) {
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Realizando consulta...");
+        showpDialog();
+        JSONObject dato = new JSONObject();
+        try {
+            dato.put("nroCarpeta", nroCarpeta);
+            dato.put("indEjefiscar", indEjefiscar);
+            Log.d("dato", dato.toString());
+            RequestQueue requestQueue = Volley.newRequestQueue(MyApplication.getAppContext());
+            final JsonArrayRequest request = new JsonArrayRequest(Request.Method.POST,
+                    "http://appserver.mca.gov.py/expediente/recursosweb/expedientes/listarMovimientosPorNroCarpetaEjerFiscar/",
+                    dato,
+                    new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            Log.d("response", response.toString());
+                            moviJson = response.toString();
+                            if (!moviJson.equals("[]")) {
+                                Intent intent = new Intent(getActivity(), ListaMovimientosActivity.class);
+                                intent.putExtra("moviJson", moviJson);
+                                startActivity(intent);
+                                hidePDialog();
+                            } else {
+                                hidePDialog();
+                                mMaterialDialog.setMessage(R.string.txt_no_existe_expediente);
+                                mMaterialDialog.show();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    hidePDialog();
+                    mMaterialDialog.setTitle(R.string.txt_titulo_alerta_conectividad_error);
+                    String mensaje = "Error code: ";
+                    if (error.networkResponse == null) {
+                        mensaje = "No se pudo realizar la operación intente de nuevo";
+                    } else {
+                        mensaje = mensaje + String.valueOf(error.networkResponse.statusCode);
+                    }
+                    mMaterialDialog.setMessage(mensaje);
+                    mMaterialDialog.show();
+                }
+            });
+            request.setShouldCache(false);
+            request.setRetryPolicy(new DefaultRetryPolicy(
+                    0,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            requestQueue.add(request);
+        } catch (JSONException e) {
+            hidePDialog();
+            mMaterialDialog.setTitle(R.string.txt_titulo_alerta_json_exception);
+            mMaterialDialog.setMessage(e.getMessage());
+            mMaterialDialog.show();
+        }
+    }
+
+    private void showpDialog() {
+        if (!pDialog.isShowing()) {
+            pDialog.show();
+        }
+    }
+
+    private void hidePDialog() {
+        if (pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
+    }
 }

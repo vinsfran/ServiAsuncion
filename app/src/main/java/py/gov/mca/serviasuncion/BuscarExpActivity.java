@@ -130,11 +130,11 @@ public class BuscarExpActivity extends AppCompatActivity {
             mMaterialDialog.setMessage(R.string.txt_mensaje_alerta_campos_vacios);
             mMaterialDialog.show();
         } else {
-            consultar();
+            consultarMovimientos();
         }
     }
 
-    public void consultar() {
+    private void consultarMovimientos() {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Realizando consulta...");
